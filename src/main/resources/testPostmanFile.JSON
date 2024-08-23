@@ -1,0 +1,114 @@
+{
+  "info": {
+    "name": "Smart Restaurant Planner Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "User Registration",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"john.doe\",\n  \"password\": \"password123\",\n  \"employeeId\": 1,\n  \"role\": \"REGULAR_STAFF\",\n  \"isFingerprintEnabled\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/create",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "users", "create"]
+        }
+      }
+    },
+    {
+      "name": "User Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"john.doe\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/users/login?username=john.doe&password=password123",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "users", "login"],
+          "query": [
+            {
+              "key": "username",
+              "value": "john.doe"
+            },
+            {
+              "key": "password",
+              "value": "password123"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Generate OTP",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/api/otp/generate/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "otp", "generate", "1"]
+        }
+      }
+    },
+    {
+      "name": "Validate OTP",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": 1,\n  \"otpCode\": \"1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/otp/validate?userId=1&otpCode=1234",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "otp", "validate"],
+          "query": [
+            {
+              "key": "userId",
+              "value": "1"
+            },
+            {
+              "key": "otpCode",
+              "value": "1234"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Check-in Attendance",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"employeeId\": 1,\n  \"checkInTime\": \"2024-08-23T09:00:00\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/attendance/check-in",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "attendance", "check-in"]
+        }
+      }
+    }
+  ]
+}
